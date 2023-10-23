@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    id ("application")
+    id ("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 group = "own.game"
@@ -16,4 +18,9 @@ dependencies {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+javafx {
+    version = "21.0.1"
+    modules = mutableListOf("javafx.controls")
 }
