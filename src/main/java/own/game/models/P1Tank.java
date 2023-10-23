@@ -1,5 +1,6 @@
 package own.game.models;
 
+import javafx.geometry.Point3D;
 import javafx.scene.image.ImageView;
 
 public class P1Tank {

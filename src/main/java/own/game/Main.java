@@ -35,14 +35,16 @@ public class Main extends Application {
         root.setPrefSize(800, 600);
 
         P1Tank p1Tank = new P1Tank(800, 600);
-        P1Controller p1Controller = new P1Controller();
+        P1Controller p1Controller = new P1Controller(1);
 
         Canvas canvas = new Canvas(800, 600);
         canvas.setFocusTraversable(true);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill((Color.rgb(255, 255, 128, 1.0)));
         gc.fillRect(0, 0, 800, 600);
+        gc.strokeLine(400, 0, 400, 600);
 
+        //русские буквы не работают
         canvas.setOnKeyTyped(event -> {
             if (event.getCharacter().equals("w") || event.getCharacter().equals("ц"))
                 p1Controller.moveUp(p1Tank);
