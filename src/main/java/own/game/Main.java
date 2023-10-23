@@ -50,4 +50,8 @@ public class Main extends Application {
     public void onUpdate() {
         g.drawImage(image, 0, 0);
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
