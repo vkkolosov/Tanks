@@ -17,7 +17,11 @@ import javafx.stage.Stage;
 import javafx.scene.canvas.*;
 import own.game.controllers.MovementController;
 import own.game.controllers.P1Controller;
+import own.game.models.P1Missile;
 import own.game.models.P1Tank;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -35,7 +39,8 @@ public class Main extends Application {
         root.setPrefSize(800, 600);
 
         P1Tank p1Tank = new P1Tank(800, 600);
-        P1Controller p1Controller = new P1Controller(1);
+        List<P1Missile> p1Missiles = new ArrayList<>();
+        P1Controller p1Controller = new P1Controller(4);
 
         Canvas canvas = new Canvas(800, 600);
         canvas.setFocusTraversable(true);
@@ -43,6 +48,14 @@ public class Main extends Application {
         gc.setFill((Color.rgb(255, 255, 128, 1.0)));
         gc.fillRect(0, 0, 800, 600);
         gc.strokeLine(400, 0, 400, 600);
+
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                onUpdate(p1Missiles);
+            }
+        };
+        timer.start();
 
         //русские буквы не работают
         canvas.setOnKeyTyped(event -> {
@@ -58,6 +71,9 @@ public class Main extends Application {
             if (event.getCharacter().equals("d") || event.getCharacter().equals("в"))
                 p1Controller.moveRight(p1Tank);
 
+            if (event.getCharacter().equals("i") || event.getCharacter().equals("ш"))
+                addMissile(root, p1Missiles, new P1Missile(p1Tank, root));
+
             //non working
             if (event.getCode() == KeyCode.S)
                 p1Controller.moveDown(p1Tank);
@@ -70,6 +86,15 @@ public class Main extends Application {
         root.getChildren().add(p1Tank.getImageView());
 
         return root;
+    }
+
+    public void addMissile(Pane root, List<P1Missile> p1Missiles, P1Missile p1Missile) {
+        root.getChildren().add(p1Missile.getImageView());
+        p1Missiles.add(p1Missile);
+    }
+
+    public void onUpdate(List<P1Missile> p1Missiles) {
+        p1Missiles.forEach(p1Missile -> p1Missile.update());
     }
 
     public static void main(String[] args) {
