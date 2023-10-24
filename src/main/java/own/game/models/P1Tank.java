@@ -9,7 +9,7 @@ public class P1Tank {
     private int x, y;
     private int push;
 
-    //координаты разрешения
+    //координаты разрешения //todo может уехать с канваса
     public P1Tank(int x, int y, int push) {
         imageView = new ImageView("./models/tank_p1_40x40.png");
         this.x = x/2;

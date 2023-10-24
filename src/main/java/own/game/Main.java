@@ -94,7 +94,8 @@ public class Main extends Application {
                 }
             }
             */
-            //on key pressed
+            //on key pressed - todo очевидно есть delay между onKeyTyped и onKeyPressed
+            //todo важно, у onKeyPressed - стоит таймер ~5-7 сек, затем release
             if (event.getCode() == KeyCode.W)
                 p1Controller.moveUp(p1Tank);
 
