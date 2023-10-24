@@ -10,12 +10,12 @@ import java.util.List;
 
 import static own.game.config.ObjectConfiguration.missileTimer;
 
-public class PlayerControlSettings {
+public class ControlSettings {
 
-    public PlayerControlSettings(Pane root,
-                                 P1Controller p1Controller,
-                                 P1Tank p1Tank,
-                                 List<P1Missile> p1Missiles) {
+    public ControlSettings(Pane root,
+                           P1Controller p1Controller,
+                           P1Tank p1Tank,
+                           List<P1Missile> p1Missiles) {
 
         root.setOnKeyPressed(event -> {
             /*

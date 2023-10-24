@@ -8,7 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import own.game.config.ObjectConfiguration;
 import own.game.controllers.P1Controller;
-import own.game.controls.PlayerControlSettings;
+import own.game.controls.ControlSettings;
 import own.game.models.P1Missile;
 import own.game.models.P1Tank;
 import own.game.stage.Stage1;
@@ -45,7 +45,7 @@ public class Main extends Application {
         List<P1Missile> p1Missiles = new ArrayList<>();
 
         //setting updates
-        PlayerControlSettings playerControlSettingsP1 = new PlayerControlSettings(root, p1Controller, p1Tank, p1Missiles);
+        ControlSettings controlSettings = new ControlSettings(root, p1Controller, p1Tank, p1Missiles);
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
