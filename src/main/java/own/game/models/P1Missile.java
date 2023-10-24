@@ -3,6 +3,8 @@ package own.game.models;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.util.List;
+
 public class P1Missile {
 
     private ImageView imageView;
@@ -71,6 +73,11 @@ public class P1Missile {
                     pane.getChildren().remove(imageView);
                 break;
         }
+    }
+
+    public static void addMissile(Pane root, List<P1Missile> p1Missiles, P1Missile p1Missile) {
+        root.getChildren().add(p1Missile.getImageView());
+        p1Missiles.add(p1Missile);
     }
 
     public int getX() {
