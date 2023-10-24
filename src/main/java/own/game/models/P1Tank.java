@@ -7,14 +7,16 @@ public class P1Tank {
 
     private ImageView imageView;
     private int x, y;
+    private int push;
 
     //координаты разрешения
-    public P1Tank(int x, int y) {
+    public P1Tank(int x, int y, int push) {
         imageView = new ImageView("./models/tank_p1_40x40.png");
         this.x = x/2;
         this.y = y/2;
         imageView.setX(this.x);
         imageView.setY(this.y);
+        this.push = push;
     }
 
     public int getX() {
@@ -31,6 +33,10 @@ public class P1Tank {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getPush() {
+        return push;
     }
 
     public ImageView getImageView() {
